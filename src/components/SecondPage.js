@@ -526,7 +526,6 @@ function SecondPage() {
       setAttempts(0);
       setInfo("Correct!");
       console.log(uWord);
-      setUserWord("");
       setBtnDisable(true);
     } else {
       setAttempts(attempts + 1);
@@ -592,6 +591,7 @@ function SecondPage() {
             autoComplete="off"
             id="user-guess"
             type="text"
+            value={userWord}
             onChange={(e) => setUserWord(e.target.value.toLowerCase())}
             placeholder="Enter your guess"
           />

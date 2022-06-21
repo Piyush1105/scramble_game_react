@@ -1,7 +1,7 @@
 {
   "name": "scramble_game_react",
   "version": "0.1.0",
-  "homepage": "https://piyush1105.github.io/scramble-game-react/",
+  "homepage": "https://piyush1105.github.io/scramble-game-react",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

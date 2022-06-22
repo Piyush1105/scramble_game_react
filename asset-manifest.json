@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.541c7b78.css",
-    "main.js": "/static/js/main.076cd98e.js",
-    "index.html": "/index.html",
-    "main.541c7b78.css.map": "/static/css/main.541c7b78.css.map",
-    "main.076cd98e.js.map": "/static/js/main.076cd98e.js.map"
+    "main.css": "/scramble-game-react/static/css/main.541c7b78.css",
+    "main.js": "/scramble-game-react/static/js/main.0579b4db.js",
+    "index.html": "/scramble-game-react/index.html",
+    "main.541c7b78.css.map": "/scramble-game-react/static/css/main.541c7b78.css.map",
+    "main.0579b4db.js.map": "/scramble-game-react/static/js/main.0579b4db.js.map"
   },
   "entrypoints": [
     "static/css/main.541c7b78.css",
-    "static/js/main.076cd98e.js"
+    "static/js/main.0579b4db.js"
   ]
 }

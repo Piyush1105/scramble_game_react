@@ -11,13 +11,18 @@ function SecondPage() {
   const [userWord, setUserWord] = useState("");
   const [correctWord, setCorrectWord] = useState("");
   const [btnDisable, setBtnDisable] = useState(false);
+  const [infoColor, setInfoColor] = useState("");
+  const [nextBtnDisable, setNextBtnDisable] = useState(false);
 
   useEffect(() => {
     setLevel();
   }, [lvl]);
   useEffect(() => {
     if (attempts === 5) {
-      setInfo("You lost!");
+      setInfoColor("red");
+      setInfo("You lost! Reset and try again.");
+      setBtnDisable(true);
+      setNextBtnDisable(true);
     }
   }, [attempts]);
 
@@ -524,11 +529,13 @@ function SecondPage() {
       setCorrect(correct + 1);
       setScore(score + 1);
       setAttempts(0);
+      setInfoColor("green");
       setInfo("Correct!");
       console.log(uWord);
       setBtnDisable(true);
     } else {
       setAttempts(attempts + 1);
+      setInfoColor("red");
       setInfo("Bzzzt! That's not right!");
     }
     // updateBoard();
@@ -543,6 +550,7 @@ function SecondPage() {
     } else if (lvl === 3) {
       randomWord(lvlThree);
     } else if (lvl === 4) {
+      setInfoColor("Green");
       setInfo("You won!");
     }
     // console.log("word", word);
@@ -584,7 +592,9 @@ function SecondPage() {
             Attempts: <span id="attempts">{attempts}</span>
           </p>
         </div>
-        <p id="info">{info}</p>
+        <p id="info" style={{ color: `${infoColor} ` }}>
+          {info}
+        </p>
         <div id="guess-container">
           <p id="scrambled-word">{word}</p>
           <input
@@ -603,7 +613,12 @@ function SecondPage() {
           >
             Submit
           </button>
-          <button type="button" onClick={nextBtn} id="next-btn">
+          <button
+            type="button"
+            disabled={nextBtnDisable}
+            onClick={nextBtn}
+            id="next-btn"
+          >
             Next
           </button>
         </div>

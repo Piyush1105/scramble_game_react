@@ -12,7 +12,7 @@ function SecondPage() {
   const [correctWord, setCorrectWord] = useState([]);
   const [btnDisable, setBtnDisable] = useState(false);
   const [infoColor, setInfoColor] = useState("");
-  const [nextBtnDisable, setNextBtnDisable] = useState(false);
+  const [nextBtnDisable, setNextBtnDisable] = useState(true);
 
   useEffect(() => {
     setLevel();
@@ -26,110 +26,107 @@ function SecondPage() {
     }
   }, [attempts]);
 
-  // const lvlOne = [
-  //   "aim",
-  //   "ace",
-  //   "bed",
-  //   "bee",
-  //   "buy",
-  //   "can",
-  //   "cow",
-  //   "cod",
-  //   "cur",
-  //   "did",
-  //   "duo",
-  //   "die",
-  //   "dry",
-  //   "dug",
-  //   "elf",
-  //   "egg",
-  //   "elk",
-  //   "fat",
-  //   "fix",
-  //   "fin",
-  //   "few",
-  //   "gym",
-  //   "guy",
-  //   "goo",
-  //   "hen",
-  //   "hag",
-  //   "hic",
-  //   "hut",
-  //   "ill",
-  //   "ice",
-  //   "imp",
-  //   "ink",
-  //   "ivy",
-  //   "jet",
-  //   "job",
-  //   "jaw",
-  //   "jab",
-  //   "keg",
-  //   "kid",
-  //   "lip",
-  //   "leg",
-  //   "lad",
-  //   "let",
-  //   "led",
-  //   "law",
-  //   "lid",
-  //   "mut",
-  //   "mat",
-  //   "mud",
-  //   "mid",
-  //   "nit",
-  //   "nog",
-  //   "now",
-  //   "oil",
-  //   "owl",
-  //   "oar",
-  //   "off",
-  //   "oat",
-  //   "one",
-  //   "pry",
-  //   "pal",
-  //   "peg",
-  //   "pea",
-  //   "pen",
-  //   "pus",
-  //   "rad",
-  //   "rem",
-  //   "rig",
-  //   "rob",
-  //   "saw",
-  //   "sob",
-  //   "sec",
-  //   "shy",
-  //   "sly",
-  //   "tan",
-  //   "the",
-  //   "tic",
-  //   "try",
-  //   "cop",
-  //   "uke",
-  //   "ugh",
-  //   "ups",
-  //   "vat",
-  //   "van",
-  //   "vet",
-  //   "woo",
-  //   "wow",
-  //   "wry",
-  //   "wok",
-  //   "yah",
-  //   "yak",
-  //   "yay",
-  //   "you",
-  //   "yep",
-  //   "zit",
-  //   "zap",
-  //   "zig",
-  //   "zag",
-  //   "zip",
-  // ];
-
   const lvlOne = {
     tap: ["tap", "pat", "apt"],
+    aim: ["aim"],
+    ace: ["ace"],
+    bed: ["bed"],
+    bee: ["bee"],
+    buy: ["buy"],
+    can: ["can"],
+    cow: ["cow"],
+    cod: ["cod"],
+    cur: ["cur"],
+    did: ["did"],
+    duo: ["duo"],
+    die: ["die"],
+    dry: ["dry"],
+    dug: ["dug"],
+    elf: ["elf"],
+    egg: ["egg"],
+    elk: ["elk"],
+    fat: ["fat"],
+    fix: ["fix"],
+    fin: ["fin"],
+    few: ["few"],
+    gym: ["gym"],
+    guy: ["guy"],
+    goo: ["goo"],
+    hen: ["hen"],
+    hag: ["hag"],
+    hic: ["hic"],
+    hut: ["hut"],
+    ill: ["ill"],
+    ice: ["ice"],
+    imp: ["imp"],
+    ink: ["ink", "kin"],
+    ivy: ["ivy"],
+    jet: ["jet"],
+    job: ["job"],
+    jaw: ["jaw"],
+    jab: ["jab"],
+    keg: ["keg"],
+    kid: ["kid"],
+    lip: ["lip"],
+    leg: ["leg"],
+    lad: ["lad"],
+    let: ["let"],
+    led: ["led"],
+    law: ["law"],
+    lid: ["lid"],
+    mut: ["mut"],
+    mat: ["mat"],
+    mud: ["mud"],
+    mid: ["mid", "dim"],
+    nit: ["nit", "tin"],
+    nog: ["nog"],
+    now: ["now", "won"],
+    oil: ["oil"],
+    owl: ["owl", "low"],
+    oar: ["oar"],
+    off: ["off"],
+    oat: ["oat"],
+    one: ["one"],
+    pry: ["pry"],
+    pal: ["pal", "lap"],
+    peg: ["peg"],
+    pea: ["pea"],
+    pen: ["pen"],
+    pus: ["pus"],
+    rad: ["rad"],
+    rem: ["rem"],
+    rig: ["rig"],
+    rob: ["rob"],
+    saw: ["saw"],
+    sob: ["sob"],
+    sec: ["sec"],
+    shy: ["shy"],
+    sly: ["sly"],
+    tan: ["tan", "ant", "nat"],
+    the: ["the"],
+    tic: ["tic"],
+    try: ["try"],
+    cop: ["cop"],
+    uke: ["uke"],
+    ugh: ["ugh"],
+    ups: ["ups", "sup", "pus"],
+    vat: ["vat"],
+    van: ["van"],
+    vet: ["vet"],
+    woo: ["woo"],
+    wow: ["wow"],
+    wry: ["wry"],
+    wok: ["wok"],
+    yah: ["yah", "hay"],
+    yak: ["yak"],
+    yay: ["yay"],
+    you: ["you"],
+    yep: ["yep"],
+    zit: ["zit"],
+    zap: ["zap"],
+    zig: ["zig"],
+    zag: ["zag"],
+    zip: ["zip"],
   };
 
   // const lvlTwo = [
@@ -256,7 +253,72 @@ function SecondPage() {
   // ];
 
   const lvlTwo = {
-    able: ["able"],
+    able: ["able", "beal", "blae"],
+    aced: ["aced", "dace", "cade"],
+    acid: ["acid", "caid"],
+    ally: ["ally"],
+    also: ["also"],
+    arcs: ["arcs"],
+    area: ["area"],
+    arch: ["arch"],
+    aunt: ["aunt"],
+    axis: ["axis"],
+    baby: ["baby"],
+    back: ["back"],
+    ball: ["ball"],
+    babe: ["babe"],
+    bass: ["bass"],
+    bell: ["bell"],
+    bets: ["bets"],
+    bind: ["bind"],
+    bios: ["bios"],
+    book: ["book"],
+    cabs: ["cabs"],
+    case: ["case"],
+    chef: ["chef"],
+    curl: ["curl"],
+    chat: ["chat"],
+    chap: ["chap"],
+    chin: ["chin"],
+    chum: ["chum"],
+    chop: ["chop"],
+    coal: ["coal"],
+    dabs: ["dabs"],
+    dame: ["dame"],
+    damp: ["damp"],
+    dart: ["dart"],
+    dash: ["dash"],
+    dark: ["dark"],
+    deck: ["deck"],
+    deep: ["deep"],
+    diva: ["diva"],
+    dice: ["dice"],
+    easy: ["easy"],
+    ends: ["ends"],
+    epic: ["epic"],
+    etch: ["etch"],
+    evil: ["evil"],
+    expo: ["expo"],
+    exam: ["exam"],
+    face: ["face"],
+    fact: ["fact"],
+    fail: ["fail"],
+    fair: ["fair"],
+    fall: ["fall"],
+    farm: ["farm"],
+    fave: ["fave"],
+    fart: ["fart"],
+    gain: ["gain"],
+    gays: ["gays"],
+    gets: ["gets", "gest"],
+    germ: ["germ"],
+    glad: ["glad"],
+    hams: ["hams"],
+    haze: ["haze"],
+    help: ["help"],
+    head: ["help"],
+    hers: ["hers"],
+    hike: ["hike"],
   };
   // const lvlThree = [
   //   "abide",
@@ -473,23 +535,67 @@ function SecondPage() {
 
   const lvlThree = {
     abide: ["abide"],
+    about: ["about"],
+    above: ["above"],
+    adapt: ["adapt"],
+    array: ["array"],
+    aglow: ["aglow"],
+    aisle: ["aisle"],
+    angry: ["angry"],
+    apart: ["apart"],
+    ansty: ["ansty"],
+    apple: ["apple"],
+    april: ["april"],
+    basic: ["basic"],
+    beers: ["beers"],
+    bikes: ["bikes"],
+    birds: ["birds"],
+    black: ["black"],
+    blank: ["blank"],
+    brisk: ["brisk"],
+    broad: ["broad"],
+    bends: ["bends"],
+    berry: ["berry"],
+    below: ["below"],
+    birdy: ["birdy"],
+    blush: ["blush"],
+    bluff: ["bluff"],
+    bolts: ["bolts"],
+    cable: ["cable"],
+    champ: ["champ"],
+    chalk: ["chalk"],
+    clams: ["clams"],
+    coded: ["coded"],
+    comet: ["comet"],
+    crack: ["crack"],
+    crags: ["crags"],
+    cramp: ["cramp"],
+    crank: ["crank"],
+    crays: ["crays"],
+    creak: ["creak"],
+    creed: ["creed"],
+    cycle: ["cycle"],
+    daddy: ["daddy"],
+    dance: ["dance"],
+    darts: ["darts"],
+    dated: ["dated"],
+    denim: ["denim"],
   };
   function randomWord(lvl) {
     const keys = Object.keys(lvl);
-    let temp = keys[Math.floor(Math.random() * keys.length + 1) - 1];
-    console.log(temp);
+    let temp = keys[Math.floor(Math.random() * keys.length)];
+    // console.log(temp);
     let arr = [];
     for (let i = 0; i < lvl[temp].length; i++) {
       arr.push(lvl[temp][i]);
     }
-    console.log(arr);
+    // console.log(arr);
     let sWord = scrambleWord(temp);
-    console.log(`sWord: ${sWord}`);
+    // console.log(`sWord: ${sWord}`);
     // setUserWord(sWord);
     setCorrectWord(arr);
-    console.log("correctWord: ", correctWord);
     setWord(sWord);
-    console.log("temp", temp);
+    // console.log("temp", temp);
   }
 
   function resetGame() {
@@ -501,9 +607,9 @@ function SecondPage() {
   }
 
   function scrambleWord(word) {
-    console.log("word", word);
+    // console.log("word", word);
     let letters = word.split("");
-    console.log("letters", letters);
+    // console.log("letters", letters);
     let currentIndex = letters.length,
       temporaryValue,
       randomIndex;
@@ -519,9 +625,9 @@ function SecondPage() {
       letters[currentIndex] = letters[randomIndex];
       letters[randomIndex] = temporaryValue;
     }
-    console.log(`letters: ${letters}`);
+    // console.log(`letters: ${letters}`);
     let letterjoin = letters.join("");
-    console.log(`letterjoin: ${letterjoin}`);
+    // console.log(`letterjoin: ${letterjoin}`);
     return letterjoin;
   }
 
@@ -532,7 +638,7 @@ function SecondPage() {
       setCorrect(0);
     }
     if (attempts === 5) {
-      console.log("you lost");
+      // console.log("you lost");
       resetGame();
     }
 
@@ -542,7 +648,8 @@ function SecondPage() {
       setAttempts(0);
       setInfoColor("green");
       setInfo("Correct!");
-      console.log(uWord);
+      setNextBtnDisable(false);
+      // console.log(uWord);
       setBtnDisable(true);
     } else {
       setAttempts(attempts + 1);
@@ -553,7 +660,7 @@ function SecondPage() {
 
   function setLevel() {
     if (lvl === 1) {
-      console.log("run lvl");
+      // console.log("run lvl");
       randomWord(lvlOne);
     } else if (lvl === 2) {
       randomWord(lvlTwo);
@@ -570,6 +677,7 @@ function SecondPage() {
     setUserWord("");
     setAttempts(0);
     setBtnDisable(false);
+    setNextBtnDisable(true);
   }
 
   return (

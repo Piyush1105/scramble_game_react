@@ -581,6 +581,8 @@ function SecondPage() {
     dated: ["dated"],
     denim: ["denim"],
   };
+
+  //generates a random word from the object
   function randomWord(lvl) {
     const keys = Object.keys(lvl);
     let temp = keys[Math.floor(Math.random() * keys.length)];
@@ -597,7 +599,7 @@ function SecondPage() {
     setWord(sWord);
     // console.log("temp", temp);
   }
-
+  //resets the game on lost
   function resetGame() {
     setLvl(1);
     setInfo("");
@@ -606,6 +608,7 @@ function SecondPage() {
     setAttempts(0);
   }
 
+  //scrambles the word
   function scrambleWord(word) {
     // console.log("word", word);
     let letters = word.split("");
@@ -658,6 +661,7 @@ function SecondPage() {
     }
   }
 
+  //to check level and show word according to it
   function setLevel() {
     if (lvl === 1) {
       // console.log("run lvl");
@@ -671,6 +675,8 @@ function SecondPage() {
       setInfo("You won!");
     }
   }
+
+  //for next btn
   function nextBtn() {
     setLevel();
     setInfo("");

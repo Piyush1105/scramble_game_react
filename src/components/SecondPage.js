@@ -13,18 +13,30 @@ function SecondPage() {
   const [btnDisable, setBtnDisable] = useState(false);
   const [infoColor, setInfoColor] = useState("");
   const [nextBtnDisable, setNextBtnDisable] = useState(true);
+  const [notRandomKeyAgain, setNotRandomKeyAgain] = useState([]);
 
   useEffect(() => {
     setLevel();
   }, [lvl]);
   useEffect(() => {
+    if (correct === 10) {
+      setCorrect(0);
+      setLvl(lvl + 1);
+      // console.log("correct: ", correct);
+    }
     if (attempts === 5) {
       setInfoColor("red");
       setInfo("You lost! Reset and try again.");
       setBtnDisable(true);
       setNextBtnDisable(true);
     }
-  }, [attempts]);
+    if (lvl === 4) {
+      setInfoColor("Green");
+      setInfo("Congratulations!!! You won!");
+      setBtnDisable(true);
+      setNextBtnDisable(true);
+    }
+  }, [attempts, correct, lvl]);
 
   const lvlOne = {
     tap: ["tap", "pat", "apt"],
@@ -581,24 +593,36 @@ function SecondPage() {
     dated: ["dated"],
     denim: ["denim"],
   };
-
+  // console.log("Correct: ", correct);
   //generates a random word from the object
   function randomWord(lvl) {
     const keys = Object.keys(lvl);
+    // console.log(keys);
     let temp = keys[Math.floor(Math.random() * keys.length)];
-    // console.log(temp);
+    // console.log("temp :", temp);
     let arr = [];
-    for (let i = 0; i < lvl[temp].length; i++) {
-      arr.push(lvl[temp][i]);
+    if (notRandomKeyAgain.includes(temp)) {
+      randomWord(lvl);
+    } else {
+      setNotRandomKeyAgain([...notRandomKeyAgain, temp]);
+      for (let i = 0; i < lvl[temp].length; i++) {
+        arr.push(lvl[temp][i]);
+      }
+
+      // console.log(arr);
+      // notRandomKeyAgain.push(temp);
+
+      let sWord = scrambleWord(temp);
+      // console.log(`sWord: ${sWord}`);
+      // setUserWord(sWord);
+      setCorrectWord(arr);
+      setWord(sWord);
     }
-    // console.log(arr);
-    let sWord = scrambleWord(temp);
-    // console.log(`sWord: ${sWord}`);
-    // setUserWord(sWord);
-    setCorrectWord(arr);
-    setWord(sWord);
+
     // console.log("temp", temp);
+    // console.log("notRandomKeyAgain: ", notRandomKeyAgain);
   }
+
   //resets the game on lost
   function resetGame() {
     setLvl(1);
@@ -636,10 +660,7 @@ function SecondPage() {
 
   function checkAnswer(uWord) {
     uWord = userWord.toLowerCase();
-    if (correct === 10) {
-      setLvl(lvl + 1);
-      setCorrect(0);
-    }
+
     if (attempts === 5) {
       // console.log("you lost");
       resetGame();
@@ -670,9 +691,6 @@ function SecondPage() {
       randomWord(lvlTwo);
     } else if (lvl === 3) {
       randomWord(lvlThree);
-    } else if (lvl === 4) {
-      setInfoColor("Green");
-      setInfo("You won!");
     }
   }
 
@@ -710,7 +728,7 @@ function SecondPage() {
             id="user-guess"
             type="text"
             value={userWord}
-            onChange={(e) => setUserWord(e.target.value.toLowerCase())}
+            onChange={(e) => setUserWord(e.target.value)}
             placeholder="Enter your guess"
           />
           <button
